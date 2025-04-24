@@ -86,14 +86,17 @@ const OrderForm = () => {
     }
   };
 
-  useEffect(() => {
-    const items = form.watch("items");
-    const total = items.reduce((sum, item) => {
-      return sum + item.price * item.quantity;
-    }, 0);
-    form.setValue("totalAmount", total);
-  }, [form.watch("items")]);
-  
+  const items = form.watch("items");
+  const totalAmount = items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  // Set the total amount in the form
+  React.useEffect(() => {
+    form.setValue("totalAmount", totalAmount);
+  }, [totalAmount, form]);
+
 
   return (
     <div className="rounded-lg ring ring-violet-300 max-w-3xl w-full flex flex-col items-center mx-auto p-4 bg-violet-50">
