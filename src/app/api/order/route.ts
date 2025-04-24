@@ -1,9 +1,9 @@
 import { dbConnect } from "@/lib/dbConnect";
+import "@/models/DeliveryPartner.model";
 import OrderModel from "@/models/Order.model";
 import { orderSchema } from "@/schema/order.schema";
 import { NextRequest, NextResponse } from "next/server";
 import { ZodError } from "zod";
-import "@/models/DeliveryPartner.model";
 
 
 export  async function GET(req: NextRequest) {

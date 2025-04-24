@@ -1,17 +1,12 @@
 "use client";
 import { usePartners } from "@/hooks/usePartner";
-import { dbConnect } from "@/lib/dbConnect";
 import { cn } from "@/lib/utils";
-import DeliveryPartnerModel, { DeliveryPartner } from "@/models/DeliveryPartner.model";
-import { ApiResponse } from "@/types/ApiResponse";
-import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
-import React, { useState } from "react";
-import { Button } from "./ui/button";
 import { Loader, OctagonAlert, Pencil } from "lucide-react";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
-import PartnerForm from "./PartnerForm";
 import { notFound, useRouter } from "next/navigation";
+import { useState } from "react";
+import PartnerForm from "./PartnerForm";
+import { Button } from "./ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 
 

@@ -1,4 +1,5 @@
 "use client";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -6,21 +7,20 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { Input } from "@/components/ui/input";
-import { Button, buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
-import axios, { AxiosError } from 'axios'
-import { LucideEye, LucideEyeOff } from "lucide-react";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { SignUpSchema } from "@/schema/sign-up.schema";
-import { toast } from "sonner";
-import { useMutation } from "@tanstack/react-query";
 import { ApiResponse } from "@/types/ApiResponse";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import axios, { AxiosError } from 'axios';
+import { LucideEye, LucideEyeOff } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
 const Page = () => {
   const [isHide, setIsHide] = useState<boolean>(true);
   const [isLoading,setIsLoading] = useState<boolean>(false);

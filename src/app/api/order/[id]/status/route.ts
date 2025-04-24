@@ -58,19 +58,6 @@ export async function PUT(
         }
       }
     }
-
-    // const updatedOrder = await OrderModel.findByIdAndUpdate(orderId, {
-    //   status: newStatus,
-    // });
-    // if (!updatedOrder) {
-    //   return new NextResponse(
-    //     JSON.stringify({
-    //       success: false,
-    //       message: "Failed to update the order",
-    //     }),
-    //     { status: 400 }
-    //   );
-    // }
     return new NextResponse(
       JSON.stringify({
         success: true,

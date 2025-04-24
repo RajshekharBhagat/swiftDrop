@@ -10,15 +10,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { signinSchema } from "@/schema/sign-in.schema";
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { LucideEye, LucideEyeOff } from "lucide-react";
-import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { LucideEye, LucideEyeOff } from "lucide-react";
 import { signIn } from "next-auth/react";
-import { toast } from "sonner";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
 
 const Page = () => {
   const [isHide, setIsHide] = useState<boolean>(true);

@@ -1,5 +1,11 @@
+import { cn } from "@/lib/utils";
 import { Order } from "@/models/Order.model";
-import React from "react";
+import { ApiResponse } from "@/types/ApiResponse";
+import { OrderStatusToggleType } from "@/validators/orderStatusToggleValidator";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import {
   Select,
   SelectContent,
@@ -8,13 +14,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { QueryClient, useMutation, useQueryClient } from "@tanstack/react-query";
-import { OrderStatusToggleType } from "@/validators/orderStatusToggleValidator";
-import axios from "axios";
-import { ApiResponse } from "@/types/ApiResponse";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
 
 interface OrderStatusToggleProps {
   order: Order;

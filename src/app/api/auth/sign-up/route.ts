@@ -1,4 +1,3 @@
-import { getAuthSession } from "@/lib/auth";
 import { dbConnect } from "@/lib/dbConnect";
 import UserModel from "@/models/user.model";
 import { SignUpSchema } from "@/schema/sign-up.schema";

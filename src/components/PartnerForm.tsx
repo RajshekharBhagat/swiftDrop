@@ -1,22 +1,33 @@
 "use client";
 
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
-import { z } from "zod";
+import { Button } from "@/components/ui/button";
 import {
   Form,
+  FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormControl,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { DeliveryPartner } from "@/models/DeliveryPartner.model";
 import { partnerSchema } from "@/schema/partner.schema";
+import { DialogTitle } from "@radix-ui/react-dialog";
+import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import { z } from "zod";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogTrigger,
+} from "./ui/dialog";
 import {
   Select,
   SelectContent,
@@ -24,17 +35,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { useMutation } from "@tanstack/react-query";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
-import { DeliveryPartner } from "@/models/DeliveryPartner.model";
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogTrigger,
-} from "./ui/dialog";
-import { DialogTitle } from "@radix-ui/react-dialog";
 
 type PartnerFormData = z.infer<typeof partnerSchema> & { _id?: string };
 interface PartnerFormProps {

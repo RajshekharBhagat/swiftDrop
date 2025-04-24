@@ -2,7 +2,6 @@ import { dbConnect } from "@/lib/dbConnect";
 import AssignmentModel from "@/models/Assignment.model";
 import DeliveryPartnerModel, { DeliveryPartner } from "@/models/DeliveryPartner.model";
 import OrderModel, { Order } from "@/models/Order.model";
-import { ApiResponse } from "@/types/ApiResponse";
 import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 
