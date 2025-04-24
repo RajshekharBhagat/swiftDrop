@@ -4,8 +4,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen h-full w-full">
-      <div className=" max-w-5xl w-full mx-auto mt-10">
-        <span className="flex items-center justify-center text-violet-900 font-bold tracking-tighter text-2xl md:text-3xl xl:text-6xl">
+      <div className="max-w-5xl w-full mx-auto mt-10">
+        <span className="flex items-center justify-center text-violet-900 font-bold tracking-tighter text-2xl sm:text-3xl md:text-6xl">
           <span className="font-extrabold text-violet-500">S</span>wift
           <span className="font-extrabold text-violet-500">D</span>rop
         </span>
