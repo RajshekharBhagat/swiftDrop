@@ -5,10 +5,10 @@ import OrderModel, { Order } from "@/models/Order.model";
 import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: NextRequest, {params}:{params:{id: string}}){
+export async function POST(req: NextRequest, context:{params:{id: string}}){
     await dbConnect();
     try {
-        const orderId = params.id;
+        const {id:orderId} = await context.params; 
         if(!orderId) {
             return new NextResponse(
               JSON.stringify({

@@ -6,12 +6,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   await dbConnect();
   try {
     const body = await req.json();
-    const orderId = params.id;
+    const {id: orderId} = await context.params;
     if (!orderId) {
       return new NextResponse(
         JSON.stringify({

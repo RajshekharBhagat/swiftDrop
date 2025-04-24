@@ -11,7 +11,6 @@ import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 
 const PartnerList = () => {
-  const router = useRouter();
   const { data: partners, isLoading, error } = usePartners();
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   if(error) {
