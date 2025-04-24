@@ -1,4 +1,3 @@
-import { DeliveryPartner } from "@/models/DeliveryPartner.model";
 import { Order } from "@/models/Order.model";
 import { ApiResponse } from "@/types/ApiResponse";
 import { useQuery } from "@tanstack/react-query"
