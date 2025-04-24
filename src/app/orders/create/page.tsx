@@ -5,7 +5,7 @@ import { HomeIcon, MoveLeftIcon } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
-const page = () => {
+const Page = () => {
   return (
     <div>
       <div className='flex justify-end'>
@@ -16,4 +16,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

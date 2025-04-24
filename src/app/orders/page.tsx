@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { MoveLeftIcon, PlusCircleIcon } from 'lucide-react';
 import Link from 'next/link';
 
-const page = () => {
+const Page = () => {
   
   return (
     <div className='flex flex-col min-h-screen h-full w-full p-3'>
@@ -30,4 +30,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

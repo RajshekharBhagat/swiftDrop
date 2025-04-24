@@ -3,10 +3,10 @@ import DeliveryPartnerModel from "@/models/DeliveryPartner.model";
 import { partnerSchema } from "@/schema/partner.schema";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function PUT(req: NextRequest,{params}:{params:{id: string}}) {
+export async function PUT(req: NextRequest,{ params }: { params: Promise<{ id: string }> }) {
     await dbConnect();
     try {
-        const partnerId = await params.id
+        const partnerId = (await params).id;
         const body = await req.json();
         const parsedData = partnerSchema.safeParse(body);
         if(!parsedData.success) {
@@ -53,10 +53,10 @@ export async function PUT(req: NextRequest,{params}:{params:{id: string}}) {
     }
 }
 
-export async function DELETE(req: NextRequest,{params}: {params:{id: string}}) {
+export async function DELETE(req: NextRequest,{ params }: { params: Promise<{ id: string }> }) {
     await dbConnect();
     try {
-        const partnerId = params.id;
+        const partnerId = (await params).id;
         const deletedUser = await DeliveryPartnerModel.findByIdAndDelete(partnerId);
         if(!deletedUser) {
             return new NextResponse(

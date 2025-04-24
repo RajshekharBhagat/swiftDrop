@@ -14,7 +14,7 @@ import {
 import Link from "next/link";
 import React, { useState } from "react";
 
-const page = () => {
+const Page = () => {
   const [isPartnerFormOpen, setIsPartnerFormOpen] = useState<boolean>(false);
   const { data: partnerList, isPending } = usePartners();
   const activePartners = partnerList?.filter(
@@ -75,4 +75,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
