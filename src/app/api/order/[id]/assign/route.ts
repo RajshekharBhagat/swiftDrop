@@ -50,7 +50,6 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
               { status: 404 }
             );
         }
-        console.log(partner)
         order.assignedTo = new mongoose.Types.ObjectId(partner._id);
         order.status = 'assigned';
         await order.save();

@@ -56,7 +56,7 @@ const OrderForm = () => {
     name: "items",
   });
 
-  const { mutate: createOrder } = useMutation({
+  const { mutate: createOrder, isPending } = useMutation({
     mutationFn: async (FormData: OrderFormDataType) => {
       const { data: response } = await axios.post<ApiResponse>(
         "/api/order",
@@ -292,7 +292,7 @@ const OrderForm = () => {
               )}
             />
           </div>
-          <Button type="submit">Submit</Button>
+          <Button isLoading={isPending} disabled={isPending} loadingText="Creating" type="submit">Submit</Button>
         </form>
       </Form>
     </div>

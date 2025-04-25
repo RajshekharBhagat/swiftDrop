@@ -1,9 +1,12 @@
+import { DeliveryPartner } from "./DeliveryPartner.model";
 import mongoose, { Schema } from "mongoose";
 import { Document, Types } from "mongoose";
+import { Order } from "./Order.model";
 
 export interface Assignment extends Document {
-  orderId: Types.ObjectId;
-  partnerId?: Types.ObjectId;
+  _id: string;
+  orderId: Types.ObjectId | Order;
+  partnerId?: Types.ObjectId | DeliveryPartner;
   timestamp: Date;
   status: 'success' | 'failed';
   reason?: string;

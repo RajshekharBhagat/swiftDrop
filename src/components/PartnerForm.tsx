@@ -86,7 +86,7 @@ const PartnerForm = ({
   const router = useRouter();
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
-  const { mutate: partnerRegister, isPending } = useMutation({
+  const { mutate: partnerRegister, isPending: registerPending } = useMutation({
     mutationFn: async (data: PartnerFormData) => {
       const res = await axios.post("/api/partner", data);
       return res.data;
@@ -102,7 +102,7 @@ const PartnerForm = ({
     },
   });
 
-  const { mutate: deletePartner } = useMutation({
+  const { mutate: deletePartner,isPending: deletePending } = useMutation({
     mutationFn: async (id: string) => {
       const res = await axios.delete(`/api/partner/${id}`);
       return res.data;
@@ -117,7 +117,7 @@ const PartnerForm = ({
     },
   });
 
-  const { mutate: updatePartner } = useMutation({
+  const { mutate: updatePartner, isPending: updatePending } = useMutation({
     mutationFn: async (updatedData: PartnerFormData) => {
       const res = await axios.put(
         `/api/partner/${updatedData._id}`,
@@ -273,8 +273,8 @@ const PartnerForm = ({
             />
           </div>
           <div className="flex item-center justify-between">
-            <Button type="submit" disabled={isPending}>
-              {isPending
+            <Button isLoading={registerPending || updatePending} type="submit" disabled={registerPending || updatePending}>
+              {registerPending || updatePending
                 ? buttonText
                   ? "Updating..."
                   : "Submitting..."
@@ -298,8 +298,8 @@ const PartnerForm = ({
                     Do you really want to delete this partner ?
                   </DialogTitle>
                   <DialogFooter>
-                    <Button onClick={() => deletePartner(selectedPartner._id)}>
-                      Yes
+                    <Button isLoading={deletePending} loadingText="" variant={'destructive'} onClick={() => deletePartner(selectedPartner._id)}>
+                      Delete
                     </Button>
                   </DialogFooter>
                 </DialogContent>

@@ -3,6 +3,7 @@ import PartnerForm from "@/components/PartnerForm";
 import PartnerList from "@/components/PartnerList";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { usePartners } from "@/hooks/usePartner";
+import { useQueryClient } from "@tanstack/react-query";
 import {
   CircleXIcon,
   CrossIcon,
@@ -16,6 +17,7 @@ import React, { useState } from "react";
 
 const Page = () => {
   const [isPartnerFormOpen, setIsPartnerFormOpen] = useState<boolean>(false);
+  const queryClient = useQueryClient();
   const { data: partnerList, isPending } = usePartners();
   const activePartners = partnerList?.filter(
     (partner) => partner.status === "active"
@@ -24,6 +26,7 @@ const Page = () => {
 
   const handleFormSuccess = () => {
     setIsPartnerFormOpen(false);
+    queryClient.invalidateQueries({queryKey: ['partners']})
   };
   return (
     <div className="flex flex-col items-center">
